@@ -1,23 +1,24 @@
+import TaskBar from "./components/TaskBar";
 import DesktopIcons from "./components/DesktopIcons";
 
 function App() {
   return (
     <div className="bg-[#008080] h-screen w-screen p-4">
-      <div>
-        <DesktopIcons iconURL="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png">
-          Trash
-        </DesktopIcons>
-        <DesktopIcons />
-        <DesktopIcons />
-        <DesktopIcons />
-        <DesktopIcons />
-        <DesktopIcons />
-      </div>
-      <div className="bg-gray-400 w-full h-12 bottom-0 left-0 absolute">
-        <div className="border flex items-center h-full pl-2">
-          <button className="button h-8">Start</button>
+      <div className="flex gap-2">
+        <div className="h-max w-max flex flex-col">
+          <DesktopIcons iconURL="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png">
+            Trash
+          </DesktopIcons>
+          <DesktopIcons iconURL="https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-3.png">
+            Music
+          </DesktopIcons>
+          <DesktopIcons iconURL="https://win98icons.alexmeub.com/icons/png/msn3-4.png">
+            MSN
+          </DesktopIcons>
+          <DesktopIcons iconURL="https://win98icons.alexmeub.com/icons/png/msie2-1.png" />
         </div>
       </div>
+      <TaskBar />
     </div>
   );
 }
