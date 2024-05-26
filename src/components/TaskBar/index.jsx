@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import DesktopBody from "../DesktopBody";
 
 import Window from "../Window";
@@ -41,28 +40,24 @@ export default function index() {
         <button onClick={handleStart} className="button h-8">
           Start
         </button>
-        <DragDropContext>
-          <Droppable>
-            <Window isOpen={isOpenWindow}>
-              <div class="title-bar">
-                <div class="title-bar-text">A Window With Stuff In It</div>
-                <div class="title-bar-controls">
-                  <button aria-label="Minimize"></button>
-                  <button aria-label="Maximize"></button>
-                  <button
-                    aria-label="Close"
-                    onClick={() => setIsOpenWindow(false)}
-                  ></button>
-                </div>
-              </div>
-              <div class="window-body">
-                <DesktopBody>
-                  <div className="w-[400px] h-[600px]"></div>
-                </DesktopBody>
-              </div>
-            </Window>
-          </Droppable>
-        </DragDropContext>
+        <Window isOpen={isOpenWindow}>
+          <div class="title-bar">
+            <div class="title-bar-text">A Window With Stuff In It</div>
+            <div class="title-bar-controls">
+              <button aria-label="Minimize"></button>
+              <button aria-label="Maximize"></button>
+              <button
+                aria-label="Close"
+                onClick={() => setIsOpenWindow(false)}
+              ></button>
+            </div>
+          </div>
+          <div class="window-body">
+            <DesktopBody>
+              <div className="w-[400px] h-[600px]"></div>
+            </DesktopBody>
+          </div>
+        </Window>
       </div>
     </div>
   );
