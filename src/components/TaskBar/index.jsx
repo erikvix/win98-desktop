@@ -6,7 +6,7 @@ import Window from "../Window";
 
 export default function index() {
   const [isOpen, setIsOpen] = useState(true);
-  const [isOpenWindow, setIsOpenWindow] = useState(true);
+  const [isOpenWindow, setIsOpenWindow] = useState(0);
 
   function handleStart() {
     setIsOpen(!isOpen);
@@ -23,23 +23,35 @@ export default function index() {
         document.getElementById("letterboxd-embed-wrapper-tc").innerHTML = data;
       });
   }, []);
+
   return (
     <div className="bg-gray-400 w-full h-12 bottom-0 text-sm font-win left-0 absolute">
       <div className="border flex items-center h-full pl-2">
         {isOpen == true ? (
           <d className="h-[250px] w-40 absolute bottom-12 bg-gray-400">
-            <div className="border m-2">
-              <div>
+            <div className="m-2">
+              <div className="flex flex-col gap-2">
                 <button
-                  onClick={handleOpenWindow}
+                  onClick={() => setIsOpenWindow(1)}
                   className="w-full flex p-1 items-center gap-4"
                 >
                   <img
                     className="w-6"
-                    src="https://win98icons.alexmeub.com/icons/png/computer-2.png"
+                    src="https://win98icons.alexmeub.com/icons/png/address_book_users.png"
                     alt=""
                   />
-                  Profile
+                  ChatBox
+                </button>
+                <button
+                  onClick={() => setIsOpenWindow(2)}
+                  className="w-full flex p-1 items-center gap-4"
+                >
+                  <img
+                    className="w-6"
+                    src="https://win98icons.alexmeub.com/icons/png/world_star-0.png"
+                    alt=""
+                  />
+                  Playlist
                 </button>
               </div>
             </div>
@@ -48,15 +60,15 @@ export default function index() {
         <button onClick={handleStart} className="button h-8">
           Start
         </button>
-        <Window isOpen={isOpenWindow}>
+        <Window isOpen={isOpenWindow == 1}>
           <div class="title-bar">
-            <div class="title-bar-text">A Window With Stuff In It</div>
+            <div class="title-bar-text">ChatBox</div>
             <div class="title-bar-controls">
               <button aria-label="Minimize"></button>
               <button aria-label="Maximize"></button>
               <button
                 aria-label="Close"
-                onClick={() => setIsOpenWindow(false)}
+                onClick={() => setIsOpenWindow(0)}
               ></button>
             </div>
           </div>
@@ -69,7 +81,41 @@ export default function index() {
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe> */}
-            <div id="letterboxd-embed-wrapper-tc">Loading...</div>
+            {/* <div id="letterboxd-embed-wrapper-tc">Loading...</div> */}
+            <iframe
+              src="https://www3.cbox.ws/box/?boxid=3539382&boxtag=2sLtED"
+              width="100%"
+              height="450"
+              allowtransparency="yes"
+              allow="autoplay"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              scrolling="auto"
+            ></iframe>
+          </DesktopBody>
+        </Window>
+        <Window isOpen={isOpenWindow === 2}>
+          <div class="title-bar">
+            <div class="title-bar-text">Spotify Playlist</div>
+            <div class="title-bar-controls">
+              <button aria-label="Minimize"></button>
+              <button aria-label="Maximize"></button>
+              <button
+                aria-label="Close"
+                onClick={() => setIsOpenWindow(0)}
+              ></button>
+            </div>
+          </div>
+          <DesktopBody>
+            <iframe
+              src="https://open.spotify.com/embed/playlist/4xjW1DFMEcQC5J3C59eZVz?utm_source=generator"
+              width="100%"
+              height="352"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
           </DesktopBody>
         </Window>
       </div>
