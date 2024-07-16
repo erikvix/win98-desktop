@@ -1,21 +1,10 @@
 import React from "react";
 import DesktopIcons from "../DesktopIcons";
-import { useDrop } from "react-dnd";
+import Detach from "../Window";
 
 export default function Desktop() {
-  const [{ isOver, canDrop }, dropRef] = useDrop({
-    accept: "window",
-    drop: (item, monitor) => {
-      alert("Dropped!");
-    },
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
-  });
-
   return (
-    <div ref={dropRef} className="h-max w-max flex flex-col">
+    <div className="h-max w-max flex flex-col">
       <DesktopIcons iconURL="https://win98icons.alexmeub.com/icons/png/recycle_bin_empty-4.png">
         Trash
       </DesktopIcons>

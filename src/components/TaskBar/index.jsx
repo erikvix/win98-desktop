@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import DesktopBody from "../DesktopBody";
 
@@ -15,6 +15,14 @@ export default function index() {
   function handleOpenWindow() {
     setIsOpenWindow(!isOpenWindow);
   }
+
+  useEffect(() => {
+    fetch("https://lb-embed-content.bokonon.dev?username=osgilyath")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("letterboxd-embed-wrapper-tc").innerHTML = data;
+      });
+  }, []);
   return (
     <div className="bg-gray-400 w-full h-12 bottom-0 text-sm font-win left-0 absolute">
       <div className="border flex items-center h-full pl-2">
@@ -52,11 +60,17 @@ export default function index() {
               ></button>
             </div>
           </div>
-          <div class="window-body">
-            <DesktopBody>
-              <div className="w-[400px] h-[600px]"></div>
-            </DesktopBody>
-          </div>
+          <DesktopBody>
+            {/* <iframe
+              src="https://open.spotify.com/embed/playlist/4xjW1DFMEcQC5J3C59eZVz?utm_source=generator"
+              width="100%"
+              height="352"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe> */}
+            <div id="letterboxd-embed-wrapper-tc">Loading...</div>
+          </DesktopBody>
         </Window>
       </div>
     </div>
