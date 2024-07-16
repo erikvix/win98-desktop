@@ -60,20 +60,22 @@ export default function index() {
         <button onClick={handleStart} className="button h-8">
           Start
         </button>
-        <Window isOpen={isOpenWindow == 1}>
-          <div class="title-bar">
-            <div class="title-bar-text">ChatBox</div>
-            <div class="title-bar-controls">
-              <button aria-label="Minimize"></button>
-              <button aria-label="Maximize"></button>
-              <button
-                aria-label="Close"
-                onClick={() => setIsOpenWindow(0)}
-              ></button>
-            </div>
-          </div>
-          <DesktopBody>
-            {/* <iframe
+        {isOpenWindow !== 0 && (
+          <div>
+            <Window isOpen={isOpenWindow == 1}>
+              <div class="title-bar">
+                <div class="title-bar-text">ChatBox</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button
+                    aria-label="Close"
+                    onClick={() => setIsOpenWindow(0)}
+                  ></button>
+                </div>
+              </div>
+              <DesktopBody>
+                {/* <iframe
               src="https://open.spotify.com/embed/playlist/4xjW1DFMEcQC5J3C59eZVz?utm_source=generator"
               width="100%"
               height="352"
@@ -81,43 +83,45 @@ export default function index() {
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
               loading="lazy"
             ></iframe> */}
-            {/* <div id="letterboxd-embed-wrapper-tc">Loading...</div> */}
-            <iframe
-              src="https://www3.cbox.ws/box/?boxid=3539382&boxtag=2sLtED"
-              width="100%"
-              height="450"
-              allowtransparency="yes"
-              allow="autoplay"
-              frameborder="0"
-              marginheight="0"
-              marginwidth="0"
-              scrolling="auto"
-            ></iframe>
-          </DesktopBody>
-        </Window>
-        <Window isOpen={isOpenWindow === 2}>
-          <div class="title-bar">
-            <div class="title-bar-text">Spotify Playlist</div>
-            <div class="title-bar-controls">
-              <button aria-label="Minimize"></button>
-              <button aria-label="Maximize"></button>
-              <button
-                aria-label="Close"
-                onClick={() => setIsOpenWindow(0)}
-              ></button>
-            </div>
+                {/* <div id="letterboxd-embed-wrapper-tc">Loading...</div> */}
+                <iframe
+                  src="https://www3.cbox.ws/box/?boxid=3539382&boxtag=2sLtED"
+                  width="100%"
+                  height="450"
+                  allowtransparency="yes"
+                  allow="autoplay"
+                  frameborder="0"
+                  marginheight="0"
+                  marginwidth="0"
+                  scrolling="auto"
+                ></iframe>
+              </DesktopBody>
+            </Window>
+            <Window isOpen={isOpenWindow === 2}>
+              <div class="title-bar">
+                <div class="title-bar-text">Spotify Playlist</div>
+                <div class="title-bar-controls">
+                  <button aria-label="Minimize"></button>
+                  <button aria-label="Maximize"></button>
+                  <button
+                    aria-label="Close"
+                    onClick={() => setIsOpenWindow(0)}
+                  ></button>
+                </div>
+              </div>
+              <DesktopBody>
+                <iframe
+                  src="https://open.spotify.com/embed/playlist/4xjW1DFMEcQC5J3C59eZVz?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  allowfullscreen=""
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                ></iframe>
+              </DesktopBody>
+            </Window>
           </div>
-          <DesktopBody>
-            <iframe
-              src="https://open.spotify.com/embed/playlist/4xjW1DFMEcQC5J3C59eZVz?utm_source=generator"
-              width="100%"
-              height="352"
-              allowfullscreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            ></iframe>
-          </DesktopBody>
-        </Window>
+        )}
       </div>
     </div>
   );
