@@ -8,7 +8,10 @@ const Window = ({ children, isOpen }) => {
     <div className="window">
       {isOpen && (
         <Draggable nodeRef={nodeRef}>
-          <div ref={nodeRef} className="fixed top-0 left-0 rounded cursor-move">
+          <div
+            ref={nodeRef}
+            className="fixed top-0 left-0 rounded cursor-move border-2 border-[#cccccc]"
+          >
             {children}
           </div>
         </Draggable>
