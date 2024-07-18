@@ -6,7 +6,7 @@ import Window from "../Window";
 
 export default function index() {
   const [isOpen, setIsOpen] = useState(true);
-  const [isOpenWindow, setIsOpenWindow] = useState(2);
+  const [isOpenWindow, setIsOpenWindow] = useState(0);
 
   function handleStart() {
     setIsOpen(!isOpen);
@@ -57,7 +57,18 @@ export default function index() {
             </div>
           </d>
         ) : null}
-        <button onClick={handleStart} className="button h-8">
+        <button
+          onClick={handleStart}
+          className="button h-8 flex items-center justify-center gap-1"
+        >
+          <span>
+            <img
+              src="https://win98icons.alexmeub.com/icons/png/windows-0.png"
+              height={20}
+              width={20}
+              alt=""
+            />
+          </span>
           Start
         </button>
         {isOpenWindow !== 0 && (
@@ -128,22 +139,50 @@ export default function index() {
                   ></iframe>
                 </div>
                 <div className="flex flex-col gap-3 text-base p-2 bg-[#B8B8B8] max-w-[500px]">
-                  <p className="mb-4 text-xl border-b-2 border-gray-50 bg-red-700 px-2 py-1 text-gray-50">
-                    LoFi/Japanese Hip-Hop:
+                  <p className="mb-4 text-xl border-b-2 border-gray-50 bg-[#405088] px-2 py-1 text-gray-50">
+                    MPB/Samba/Bossa Nova:
                   </p>
                   <p>
-                    Essas são minhas músicas mais focadas em Hip-Hop japonês e
-                    lofi que escuto enquanto estudo e quando estou voltando do
-                    trabalho de onibûs
+                    Essas são as músicas brasileiras que eu ouço para animar meu
+                    dia, apesar da grande quantidade de músicas românticas na
+                    playlist eu ainda ouço quando estou querendo melhorar meu
+                    humor
                   </p>
                   <p>Alguns artistas dessa playlist:</p>
                   <ul>
-                    <li>- Nujabes</li>
-                    <li>- Cise Starr</li>
-                    <li>- Shing02</li>
+                    <li>- Chico Buarque</li>
+                    <li>- Antonio Carlos Jobim</li>
+                    <li>- Jorgem Ben Jor</li>
                   </ul>
                   <iframe
-                    src="https://open.spotify.com/embed/playlist/4xjW1DFMEcQC5J3C59eZVz?utm_source=generator"
+                    src="https://open.spotify.com/embed/playlist/6If6qyDmYM7kv42BLnWYbY?utm_source=generator"
+                    width="100%"
+                    height="352"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+                <div className="flex flex-col gap-3 text-base p-2 bg-[#B8B8B8] max-w-[500px]">
+                  <p className="mb-4 text-xl border-b-2 border-gray-50 bg-[#557c89] px-2 py-1 text-gray-50">
+                    Shogaze/Experimental/Alternative Rock:
+                  </p>
+                  <p>
+                    Essa é atualmente a playlist que mais ouço, com gêneros
+                    variados entre shoegaze, experimental, indie rock e etc.
+                  </p>
+                  <p>
+                    Recomendo fortemente essa playlist por que todos os artistas
+                    e bandas dela são perfeitos
+                  </p>
+                  <p>Alguns artistas/bandas dessa playlist:</p>
+                  <ul>
+                    <li>- Chão de Taco</li>
+                    <li>- Chococorn and the Sugarcanes</li>
+                    <li>- Adorável Clichê</li>
+                  </ul>
+                  <iframe
+                    src="https://open.spotify.com/embed/playlist/4Y8QARwvZ5hD66ccwiCCmJ?utm_source=generator"
                     width="100%"
                     height="352"
                     allowfullscreen=""
